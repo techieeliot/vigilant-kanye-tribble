@@ -1,8 +1,16 @@
-const express = require('express')
-const request = require('request')
-const app = express()
-const port = 3000
+const express  = require('express')
+const request  = require('request')
+const mysql    = require('mysql')
+const app      = express()
+const port     = 3000
 const KanyeURL = 'http://api.kanye.rest'
+
+const conn     = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'kanye'
+})
+
 const getKanyeWrapper = (wisdom) => `<h1>${wisdom}</h1>`
 
 const getKanyeQuoteCallback = (response) => (err, res, body) => {
