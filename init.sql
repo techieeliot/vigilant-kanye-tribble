@@ -1,5 +1,9 @@
 drop database kanye;
 create database kanye;
+
+CREATE USER 'kanye'@'localhost' IDENTIFIED BY 'good_password';
+grant all privileges on kanye.* to 'kanye'@'localhost';
+
 use kanye;
 
 create table quotes(
