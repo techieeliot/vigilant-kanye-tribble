@@ -12,4 +12,12 @@ create table quotes(
     created_at datetime,
     deleted_at datetime,
     primary key(id)
-)
+);
+
+create table user(
+    id int auto_increment,
+    profile_name varchar(16),
+    created_at datetime,
+    deleted_at datetime,
+    primary key(id)
+);
