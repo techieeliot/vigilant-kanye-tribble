@@ -23,4 +23,15 @@ create table user(
     created_at datetime,
     deleted_at datetime,
     primary key(id)
+<<<<<<< HEAD
+=======
+);
+
+create table user(
+    id int auto_increment,
+    profile_name varchar(16),
+    created_at datetime,
+    deleted_at datetime,
+    primary key(id)
+>>>>>>> 97ea2ff... feat: create user table
 );
