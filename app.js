@@ -56,6 +56,10 @@ app.get('/add', (req, res) => {
     res.sendStatus(200)
 })
 
+app.get('/login', (req, res) => {
+    res.send('./views/login.html')
+})
+
 app.get('/best', getBest)
 
 app.get('/sign-up', (req, res) => { res.sendFile(__dirname + '/views/sign-up.html') })
