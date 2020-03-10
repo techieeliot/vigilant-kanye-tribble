@@ -17,6 +17,8 @@ create table quotes(
 create table user(
     id int auto_increment,
     profile_name varchar(16),
+    password varchar(20),
+    email varchar (20),
     created_at datetime,
     deleted_at datetime,
     primary key(id)
