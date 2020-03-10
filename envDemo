@@ -1,0 +1,2 @@
+export DB_USER='kanye'
+export DB_PASS='good_password'
