@@ -57,7 +57,11 @@ app.get('/add', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
+<<<<<<< HEAD
     res.sendFile(__dirname + '/views/login.html')
+=======
+    res.send('./views/login.html')
+>>>>>>> 14bc16e... Add: Node endpoint for login page
 })
 
 app.get('/best', getBest)
