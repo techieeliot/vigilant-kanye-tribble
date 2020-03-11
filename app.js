@@ -49,7 +49,9 @@ const getBest = (req, res) => {
     })
 }
 
-app.get('/', kanyeFetcher)
+app.get('/', (req, res) => { res.sendFile(__dirname + './views/index.html') })
+
+app.get('/quote', kanyeFetcher)
 
 app.get('/add', (req, res) => {
     addQuote(currentQuote)
