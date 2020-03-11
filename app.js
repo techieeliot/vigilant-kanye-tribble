@@ -59,19 +59,7 @@ app.get('/add', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     res.sendFile(__dirname + '/views/login.html')
-=======
-    res.send('./views/login.html')
->>>>>>> 14bc16e... Add: Node endpoint for login page
-=======
-    res.sendFile('./views/login.html')
->>>>>>> 629c1ae... Fix: sendfile for login endpoint
-=======
-    res.sendFile(__dirname + '/views/login.html')
->>>>>>> 2e8f274... fix: login route
 })
 
 app.get('/best', getBest)
