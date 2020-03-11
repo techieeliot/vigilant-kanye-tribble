@@ -57,7 +57,7 @@ app.get('/add', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-    res.sendFile('./views/login.html')
+    res.sendFile(__dirname + '/views/login.html')
 })
 
 app.get('/best', getBest)
