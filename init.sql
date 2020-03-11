@@ -7,13 +7,14 @@ grant all PRIVILEGES on *.* to 'kanye'@'localhost';
 use kanye;
 
 create table users(
-    id int auto_increment,
+    id INT auto_increment,
     profile_name varchar(16),
     password varchar(20),
     email varchar (20),
     created_at datetime,
     deleted_at datetime,
-    primary key(id)
+    constraint user_id primary key(id),
+    CONSTRAINT profile_name UNIQUE(profile_name)
 );
 
 create table quotes(
@@ -23,5 +24,5 @@ create table quotes(
     created_at datetime,
     deleted_at datetime,
     primary key(id),
-    foreign key(user_id) references users(id)
+    constraint foreign key(user_id) references users(id)
 );
