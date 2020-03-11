@@ -12,7 +12,7 @@ create table quotes(
     created_at datetime,
     deleted_at datetime,
     primary key(id),
-    foreign key(userid)
+    foreign key(user_id)
 );
 
 create table user(
