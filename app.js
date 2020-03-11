@@ -5,7 +5,7 @@ const app = express()
 const port = 3000
 const KanyeURL = 'http://api.kanye.rest'
 let currentQuote = ''
-
+app.use(express.urlencoded());
 const con = mysql.createConnection({
     host: 'localhost',
     user: process.env.DB_USER,
