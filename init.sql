@@ -11,7 +11,8 @@ create table quotes(
     quote varchar(240),
     created_at datetime,
     deleted_at datetime,
-    primary key(id)
+    primary key(id),
+    foreign key(userid)
 );
 
 create table user(
