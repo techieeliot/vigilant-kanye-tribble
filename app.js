@@ -77,6 +77,7 @@ app.get('/login', (req, res) => {
 app.get('/best', getBest)
 
 app.get('/sign-up', (req, res) => { res.sendFile(__dirname + '/views/sign-up.html') })
+app.get('/assets/style.css', (req, res) => { res.sendFile(__dirname + '/assets/style.css')})
 app.post('/sign-up', createUser)
 
 app.get('*', function(req, res){
