@@ -53,7 +53,7 @@ const createUser = (req, res) => {
         res.send(`<script>alert('Passwords must match!');\r\nlocation.replace('/sign-up');</script>`);
         return;
     }
-    con.query(`INSERT INTO user (profile_name, password, email, created_at) VALUES ("${req.body.username}", "${req.body.password}", "${req.body.email}", now())`, function(error, results, fields) {
+    con.query(`INSERT INTO users (profile_name, password, email, created_at) VALUES ("${req.body.username}", "${req.body.password}", "${req.body.email}", now())`, function(error, results, fields) {
         if (error) {
             res.status(400).send(`${JSON.stringify(error)}.`);
             return;
@@ -74,8 +74,17 @@ app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/views/login.html')
 })
 
+app.get('/assets/login.css', (req, res) => {
+    res.sendFile(__dirname + '/assets/login.css')
+})
+
 app.get('/best', getBest)
 
 app.get('/sign-up', (req, res) => { res.sendFile(__dirname + '/views/sign-up.html') })
+app.get('/assets/style.css', (req, res) => { res.sendFile(__dirname + '/assets/style.css')})
 app.post('/sign-up', createUser)
+
+app.get('*', function(req, res){
+    res.status(404).send('<h1>Nope</h1>');
+  });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
