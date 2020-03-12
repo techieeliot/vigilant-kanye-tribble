@@ -74,6 +74,10 @@ app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/views/login.html')
 })
 
+app.get('/assets/login.css', (req, res) => {
+    res.sendFile(__dirname + '/assets/login.css')
+})
+
 app.get('/best', getBest)
 
 app.get('/sign-up', (req, res) => { res.sendFile(__dirname + '/views/sign-up.html') })
