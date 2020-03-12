@@ -53,7 +53,7 @@ const createUser = (req, res) => {
         res.send(`<script>alert('Passwords must match!');\r\nlocation.replace('/sign-up');</script>`);
         return;
     }
-    con.query(`INSERT INTO user (profile_name, password, email, created_at) VALUES ("${req.body.username}", "${req.body.password}", "${req.body.email}", now())`, function(error, results, fields) {
+    con.query(`INSERT INTO users (profile_name, password, email, created_at) VALUES ("${req.body.username}", "${req.body.password}", "${req.body.email}", now())`, function(error, results, fields) {
         if (error) {
             res.status(400).send(`${JSON.stringify(error)}.`);
             return;
