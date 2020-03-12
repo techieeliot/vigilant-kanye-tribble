@@ -18,7 +18,7 @@ con.connect(err => console.log(err))
 const getKanyeWrapper = (wisdom) => `
 <h1>${wisdom}</h1>
 <button onClick="addWisdom()">
-  Add
+Add
 </button>
 <script>function addWisdom(){ fetch('/add') }</script>
 `
@@ -31,7 +31,7 @@ const getKanyeQuoteCallback = (response) => (err, res, body) => {
 
 const kanyeFetcher = (req, response) => {
     const KanyeCallback = getKanyeQuoteCallback(response)
-
+    
     return request(KanyeURL, { json: true }, KanyeCallback)
 }
 
@@ -61,6 +61,33 @@ const createUser = (req, res) => {
         if (results) res.redirect('/');
     })
 }
+/*
+    post req to send data to the server
+    db lookup on the username
+    if username doesn't exist handle
+        return to the login to throw 'Please try again'
+    if username exists
+    query the db and compare ... select from table where username=''
+    pull the password and compare the user password
+    if false, then return to the login 'Please try again'
+    if true, then redirect to the add screen
+
+*/  
+
+const authUser = (req, res) => {
+    con.query(`select profile_name from users where profile_name=${req.body.username}`, function(error, results, fields){
+        if(error) {
+            res.status(400).send(`${JSON.stringify(error)}`)
+            return;
+        } 
+
+        if(!results) {
+            console.log('no results');
+        }
+    })
+    
+
+}
 app.get('/', (req, res) => { res.sendFile(__dirname + '/views/index.html') })
 
 app.get('/quote', kanyeFetcher)
@@ -87,4 +114,7 @@ app.post('/sign-up', createUser)
 app.get('*', function(req, res){
     res.status(404).send('<h1>Nope</h1>');
   });
+
+
+app.post('/login-submit', authUser)
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
