@@ -14,7 +14,8 @@ create table users(
     created_at datetime,
     deleted_at datetime,
     constraint user_id primary key(id),
-    CONSTRAINT profile_name UNIQUE(profile_name)
+    CONSTRAINT profile_name UNIQUE(profile_name),
+    CONSTRAINT email UNIQUE(email)
 );
 
 create table quotes(
