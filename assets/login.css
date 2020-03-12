@@ -4,10 +4,12 @@ html, body {
     font-family: Roboto, Arial, sans-serif;
     font-size: 15px;
     }
-    form {
+
+    .login_form {
     border: 5px solid #f1f1f1;
     }
-    input[type=text], input[type=password] {
+
+    .login_input[type=text], input[type=password] {
     width: 100%;
     padding: 16px 8px;
     margin: 8px 0;
@@ -15,7 +17,8 @@ html, body {
     border: 1px solid #ccc;
     box-sizing: border-box;
     }
-    button {
+
+    .login_button {
     background-color: #8ebf42;
     color: white;
     padding: 14px 0;
@@ -24,21 +27,26 @@ html, body {
     cursor: grabbing;
     width: 100%;
     }
-    h1 {
+
+    .login_title {
     text-align:center;
-    fone-size:18;
+    font-size:18;
     }
-    button:hover {
+
+    .login_button:hover {
     opacity: 0.8;
     }
+
     .form_container {
     text-align: left;
     margin: 24px 50px 12px;
     }
-    .container {
+
+    .login_container {
     padding: 16px 0;
     text-align:left;
     }
+
     span.password {
     float: right;
     padding-top: 0;
