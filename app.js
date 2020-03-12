@@ -78,4 +78,8 @@ app.get('/best', getBest)
 
 app.get('/sign-up', (req, res) => { res.sendFile(__dirname + '/views/sign-up.html') })
 app.post('/sign-up', createUser)
+
+app.get('*', function(req, res){
+    res.status(404).send('<h1>Nope</h1>');
+  });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
