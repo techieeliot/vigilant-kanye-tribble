@@ -20,7 +20,9 @@ const getKanyeWrapper = (wisdom) => `
 <button onClick="addWisdom()">
 Add
 </button>
-<script>function addWisdom(){ fetch('/add') }</script>
+<button onClick="resetWisdom()">Get A New Quote</button>
+<script>function addWisdom(){ fetch('/add') };function resetWisdom(){fetch('${KanyeURL}').then((response) => {
+    return response.json()}).then((data) => {document.querySelector('h1').innerHTML = data.quote})}</script>
 `
 
 const getKanyeQuoteCallback = (response) => (err, res, body) => {
@@ -108,13 +110,17 @@ app.get('/assets/login.css', (req, res) => {
 app.get('/best', getBest)
 
 app.get('/sign-up', (req, res) => { res.sendFile(__dirname + '/views/sign-up.html') })
-app.get('/assets/style.css', (req, res) => { res.sendFile(__dirname + '/assets/style.css')})
+app.get('/assets/style.css', (req, res) => { res.sendFile(__dirname + '/assets/style.css') })
 app.post('/sign-up', createUser)
 
-app.get('*', function(req, res){
+app.get('*', function(req, res) {
     res.status(404).send('<h1>Nope</h1>');
+<<<<<<< HEAD
   });
 
 
 app.post('/login-submit', authUser)
+=======
+});
+>>>>>>> 14d2f635f7a37698f201fe1084aebd72a822158c
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
